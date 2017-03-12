@@ -1,4 +1,4 @@
-package pl.krych14m.ramki.wycennikram.calculators;
+package pl.krych14m.ramki.wycennikram.products;
 
 public class Frame implements Product {
 

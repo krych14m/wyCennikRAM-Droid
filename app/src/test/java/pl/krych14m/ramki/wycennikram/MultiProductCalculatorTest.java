@@ -8,7 +8,7 @@ import java.util.List;
 
 import pl.krych14m.ramki.wycennikram.calculators.Calculator;
 import pl.krych14m.ramki.wycennikram.calculators.CalculatorException;
-import pl.krych14m.ramki.wycennikram.calculators.Product;
+import pl.krych14m.ramki.wycennikram.products.Product;
 import pl.krych14m.ramki.wycennikram.calculators.MultiProductCalculator;
 
 import static junit.framework.Assert.assertEquals;
@@ -16,7 +16,7 @@ import static junit.framework.Assert.assertEquals;
 public class MultiProductCalculatorTest {
 
     private static final double DOOR_PRICE = 100;
-    private static final double WOODEN_DOOR_PRICE = 200;
+    private static final double WOODEN_DOOR_PRICE = DOOR_PRICE + 300;
 
     private MultiProductCalculator productCalculator;
 

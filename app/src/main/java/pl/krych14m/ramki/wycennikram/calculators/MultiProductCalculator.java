@@ -3,6 +3,8 @@ package pl.krych14m.ramki.wycennikram.calculators;
 import java.util.Collections;
 import java.util.List;
 
+import pl.krych14m.ramki.wycennikram.products.Product;
+
 public class MultiProductCalculator implements Calculator {
 
     private final List<Calculator> calculators;

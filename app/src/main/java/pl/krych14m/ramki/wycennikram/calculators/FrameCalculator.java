@@ -1,5 +1,8 @@
 package pl.krych14m.ramki.wycennikram.calculators;
 
+import pl.krych14m.ramki.wycennikram.products.Frame;
+import pl.krych14m.ramki.wycennikram.products.Product;
+
 public class FrameCalculator implements Calculator {
 
     @Override
@@ -10,7 +13,7 @@ public class FrameCalculator implements Calculator {
 
     @Override
     public boolean isProductSupported(Product product) {
-        return false;
+        return product.getClass().equals(Frame.class);
     }
 
 }
