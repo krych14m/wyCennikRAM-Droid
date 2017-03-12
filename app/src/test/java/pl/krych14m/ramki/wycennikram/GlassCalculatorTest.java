@@ -28,7 +28,7 @@ public class GlassCalculatorTest {
 
     @Test
     public void glass_price_is_correct() throws CalculatorException {
-        Glass glass = new Glass(30, 40);
+        Glass glass = new Glass(30.0, 40.0);
 
         double price = glassCalculator.getPrice(glass);
 
