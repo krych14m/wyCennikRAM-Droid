@@ -1,6 +1,7 @@
 package pl.krych14m.ramki.wycennikram.calculators;
 
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.products.Back;
 import pl.krych14m.ramki.wycennikram.products.Product;
 
@@ -14,7 +15,7 @@ public class BackCalculator extends ArealProductCalculator {
 
     @Override
     public double getSquareMeterPrice() {
-        return accessoryPriceProvider.getAccessoryPrice(AccessoryParametersProvider.BACK_PRICE_KEY);
+        return accessoryPriceProvider.getAccessoryPrice(AccessoryKey.BACK_PRICE);
     }
 
     @Override

@@ -6,12 +6,12 @@ import org.junit.Test;
 import pl.krych14m.ramki.wycennikram.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.calculators.GlassCalculator;
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.products.Glass;
 
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.GLASS_PRICE_KEY;
 
 public class GlassCalculatorTest {
 
@@ -22,7 +22,7 @@ public class GlassCalculatorTest {
     @Before
     public void before() {
         AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
-        when(accessoryPriceProvider.getAccessoryPrice(GLASS_PRICE_KEY)).thenReturn(BASE_GLASS_PRICE);
+        when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.GLASS_PRICE)).thenReturn(BASE_GLASS_PRICE);
         this.glassCalculator = new GlassCalculator(accessoryPriceProvider);
     }
 

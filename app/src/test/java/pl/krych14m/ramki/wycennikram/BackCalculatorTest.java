@@ -6,12 +6,12 @@ import org.junit.Test;
 import pl.krych14m.ramki.wycennikram.calculators.BackCalculator;
 import pl.krych14m.ramki.wycennikram.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.products.Back;
 
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.BACK_PRICE_KEY;
 
 public class BackCalculatorTest {
 
@@ -22,7 +22,7 @@ public class BackCalculatorTest {
     @Before
     public void before() {
         AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
-        when(accessoryPriceProvider.getAccessoryPrice(BACK_PRICE_KEY)).thenReturn(BASE_BACK_PRICE);
+        when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.BACK_PRICE)).thenReturn(BASE_BACK_PRICE);
         this.backCalculator = new BackCalculator(accessoryPriceProvider);
     }
 
