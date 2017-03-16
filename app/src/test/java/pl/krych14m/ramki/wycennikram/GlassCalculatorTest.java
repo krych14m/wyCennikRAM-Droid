@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import pl.krych14m.ramki.wycennikram.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.calculators.GlassCalculator;
+import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
-import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.products.Glass;
 
 import static junit.framework.Assert.assertEquals;

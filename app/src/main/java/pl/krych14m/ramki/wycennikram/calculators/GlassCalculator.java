@@ -1,7 +1,7 @@
 package pl.krych14m.ramki.wycennikram.calculators;
 
+import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
-import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.products.Glass;
 import pl.krych14m.ramki.wycennikram.products.Product;
 
