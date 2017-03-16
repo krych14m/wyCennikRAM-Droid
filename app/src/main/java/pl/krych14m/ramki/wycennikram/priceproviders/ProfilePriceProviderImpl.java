@@ -14,8 +14,4 @@ public class ProfilePriceProviderImpl implements ProfilePriceProvider {
         throw new Error("not yet implemented");
     }
 
-    public static enum Accessory {
-
-    }
-
 }
