@@ -1,4 +1,4 @@
-package pl.krych14m.ramki.wycennikram.calculators;
+package pl.krych14m.ramki.wycennikram.calculators.api;
 
 import java.util.Collections;
 import java.util.List;

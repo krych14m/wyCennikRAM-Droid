@@ -3,8 +3,8 @@ package pl.krych14m.ramki.wycennikram;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.krych14m.ramki.wycennikram.calculators.BackCalculator;
-import pl.krych14m.ramki.wycennikram.calculators.CalculatorException;
+import pl.krych14m.ramki.wycennikram.calculators.ramkicalculators.BackCalculator;
+import pl.krych14m.ramki.wycennikram.calculators.api.CalculatorException;
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
 import pl.krych14m.ramki.wycennikram.products.Back;

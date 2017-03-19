@@ -1,5 +1,6 @@
-package pl.krych14m.ramki.wycennikram.calculators;
+package pl.krych14m.ramki.wycennikram.calculators.ramkicalculators;
 
+import pl.krych14m.ramki.wycennikram.calculators.api.Calculator;
 import pl.krych14m.ramki.wycennikram.products.Frame;
 import pl.krych14m.ramki.wycennikram.products.Product;
 
