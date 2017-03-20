@@ -1,7 +1,8 @@
-package pl.krych14m.ramki.wycennikram.products;
+package pl.krych14m.ramki.wycennikram.ramki.products;
 
 import lombok.Builder;
 import lombok.Data;
+import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 @Data
 @Builder

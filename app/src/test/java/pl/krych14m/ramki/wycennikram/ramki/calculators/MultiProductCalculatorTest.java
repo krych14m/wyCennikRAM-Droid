@@ -1,4 +1,4 @@
-package pl.krych14m.ramki.wycennikram;
+package pl.krych14m.ramki.wycennikram.ramki.calculators;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,10 +6,10 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import pl.krych14m.ramki.wycennikram.calculators.api.Calculator;
-import pl.krych14m.ramki.wycennikram.calculators.api.CalculatorException;
-import pl.krych14m.ramki.wycennikram.products.Product;
-import pl.krych14m.ramki.wycennikram.calculators.api.MultiProductCalculator;
+import pl.krych14m.ramki.wycennikram.api.calculators.Calculator;
+import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
+import pl.krych14m.ramki.wycennikram.api.calculators.MultiProductCalculator;
+import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 import static junit.framework.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package pl.krych14m.ramki.wycennikram.products;
+package pl.krych14m.ramki.wycennikram.ramki.products;
 
 enum ColorType {
     RAW("raw"),

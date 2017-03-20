@@ -1,6 +1,6 @@
-package pl.krych14m.ramki.wycennikram.calculators.api;
+package pl.krych14m.ramki.wycennikram.api.calculators;
 
-import pl.krych14m.ramki.wycennikram.products.Product;
+import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 public interface Calculator {
 

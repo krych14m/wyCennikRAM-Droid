@@ -1,4 +1,4 @@
-package pl.krych14m.ramki.wycennikram.priceproviders;
+package pl.krych14m.ramki.wycennikram.ramki.priceproviders;
 
 public class AccessoryParametersProviderImpl implements AccessoryParametersProvider {
 

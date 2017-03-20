@@ -1,10 +1,10 @@
-package pl.krych14m.ramki.wycennikram.calculators.ramkicalculators;
+package pl.krych14m.ramki.wycennikram.ramki.calculators;
 
-import pl.krych14m.ramki.wycennikram.calculators.api.ArealProductCalculator;
-import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryKey;
-import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
-import pl.krych14m.ramki.wycennikram.products.Glass;
-import pl.krych14m.ramki.wycennikram.products.Product;
+import pl.krych14m.ramki.wycennikram.api.calculators.ArealProductCalculator;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.ramki.products.Glass;
+import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 public class GlassCalculator extends ArealProductCalculator {
 
@@ -15,7 +15,7 @@ public class GlassCalculator extends ArealProductCalculator {
     }
 
     @Override
-    public double getSquareMeterPrice() {
+    public double getSquareMeterPrice(Product product) {
         return accessoryPriceProvider.getAccessoryPrice(AccessoryKey.GLASS_PRICE);
     }
 

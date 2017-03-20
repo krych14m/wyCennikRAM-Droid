@@ -1,11 +1,11 @@
-package pl.krych14m.ramki.wycennikram.products;
+package pl.krych14m.ramki.wycennikram.api.products;
 
-public abstract class ArealProduct implements Product {
+public abstract class TwoDimensionalProduct implements Product {
 
     private final double x;
     private final double y;
 
-    public ArealProduct(double x, double y) {
+    public TwoDimensionalProduct(double x, double y) {
         this.x = x;
         this.y = y;
     }

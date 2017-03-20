@@ -1,8 +1,8 @@
-package pl.krych14m.ramki.wycennikram.calculators.ramkicalculators;
+package pl.krych14m.ramki.wycennikram.ramki.calculators;
 
-import pl.krych14m.ramki.wycennikram.calculators.api.Calculator;
-import pl.krych14m.ramki.wycennikram.products.Frame;
-import pl.krych14m.ramki.wycennikram.products.Product;
+import pl.krych14m.ramki.wycennikram.api.calculators.Calculator;
+import pl.krych14m.ramki.wycennikram.ramki.products.Frame;
+import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 public class FrameCalculator implements Calculator {
 

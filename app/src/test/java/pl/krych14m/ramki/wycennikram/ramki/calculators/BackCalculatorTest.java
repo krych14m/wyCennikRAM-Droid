@@ -1,13 +1,12 @@
-package pl.krych14m.ramki.wycennikram;
+package pl.krych14m.ramki.wycennikram.ramki.calculators;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.krych14m.ramki.wycennikram.calculators.ramkicalculators.BackCalculator;
-import pl.krych14m.ramki.wycennikram.calculators.api.CalculatorException;
-import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryKey;
-import pl.krych14m.ramki.wycennikram.priceproviders.AccessoryParametersProvider;
-import pl.krych14m.ramki.wycennikram.products.Back;
+import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.ramki.products.Back;
 
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
