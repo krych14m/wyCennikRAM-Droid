@@ -6,7 +6,7 @@ android:
     - build-tools-25.0.2
     - android-16
 
-before_install:
+before_script:
  - chmod +x gradlew
 
 script:
