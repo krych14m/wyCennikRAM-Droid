@@ -1,9 +1,10 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
-enum ColorType {
+public enum ColorType {
     RAW("raw"),
     STAIN("stain"),
-    OPAQUE("opaque");
+    OPAQUE("opaque"),
+    WORN_OUT("worn_out");
 
     private final String key;
 

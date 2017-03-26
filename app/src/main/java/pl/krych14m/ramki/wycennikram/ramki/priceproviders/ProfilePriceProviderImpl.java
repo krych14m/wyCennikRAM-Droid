@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ProfilePriceProviderImpl implements ProfilePriceProvider {
 
-    public double getBaseProfilePrice(String profile) {
+    public ProfilePrice getProfilePrice(String profile) {
         //TODO
         throw new Error("not yet implemented");
     }

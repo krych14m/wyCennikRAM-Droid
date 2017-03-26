@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ProfilePriceProvider {
 
-    double getBaseProfilePrice(String profile);
+    ProfilePrice getProfilePrice(String profile);
 
     List<String> getAvailableProfiles();
 

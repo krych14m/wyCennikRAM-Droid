@@ -1,20 +1,24 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
 import lombok.Builder;
-import lombok.Data;
-import pl.krych14m.ramki.wycennikram.api.products.Product;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
 
-@Data
-@Builder
-public class Frame implements Product {
+@Value
+@EqualsAndHashCode(callSuper = true)
+public class Frame extends PureFrame {
 
-    private final String profile;
-    private final double x;
-    private final double y;
-    private final ColorType colorType;
-    private final boolean glass;
-    private final boolean back;
-    private final boolean hook;
-    private final boolean mounted;
+    private boolean glass;
+    private boolean back;
+    private boolean hook;
+    private boolean mounted;
 
+    @Builder
+    public Frame(String profile, double x, double y, ColorType colorType, boolean glass, boolean back, boolean hook, boolean mounted) {
+        super(profile, x, y, colorType);
+        this.glass = glass;
+        this.back = back;
+        this.hook = hook;
+        this.mounted = mounted;
+    }
 }

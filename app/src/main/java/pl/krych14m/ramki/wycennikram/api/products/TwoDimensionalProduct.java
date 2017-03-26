@@ -1,11 +1,15 @@
 package pl.krych14m.ramki.wycennikram.api.products;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Value;
+import lombok.experimental.NonFinal;
 
-@Data
+@Value
+@NonFinal
+@AllArgsConstructor
 public abstract class TwoDimensionalProduct implements Product {
 
-    private final double x;
-    private final double y;
+    protected double x;
+    protected double y;
 
 }
