@@ -16,10 +16,10 @@ import static org.mockito.Mockito.when;
 
 public class PureFrameCalculatorTest {
 
-    private static final double STRIP_PRICE = 7.61;
-    private static final double LESS_THAN_METER_PRICE = STRIP_PRICE;
-    private static final double BASE_PRICE = Precision.round(7.61 / 0.7, 2);
-    private static final double ADDON_PRICE = BASE_PRICE - LESS_THAN_METER_PRICE;
+    public static final double STRIP_PRICE = 7.61;
+    public static final double LESS_THAN_METER_PRICE = STRIP_PRICE;
+    public static final double BASE_PRICE = Precision.round(7.61 / 0.7, 2);
+    public static final double ADDON_PRICE = BASE_PRICE - LESS_THAN_METER_PRICE;
 
     private PureFrameCalculator pureFrameCalculator;
 

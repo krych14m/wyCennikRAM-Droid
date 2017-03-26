@@ -1,6 +1,5 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 import lombok.experimental.NonFinal;
@@ -14,7 +13,6 @@ public class PureFrame extends TwoDimensionalProduct {
     protected String profile;
     protected ColorType colorType;
 
-    @Builder(builderMethodName = "pureFrameBuilder")
     public PureFrame(String profile, double x, double y, ColorType colorType) {
         super(x, y);
         this.profile = profile;

@@ -11,14 +11,14 @@ public class Frame extends PureFrame {
     private boolean glass;
     private boolean back;
     private boolean hook;
-    private boolean mounted;
+    private boolean badges;
 
-    @Builder
-    public Frame(String profile, double x, double y, ColorType colorType, boolean glass, boolean back, boolean hook, boolean mounted) {
+    @Builder(toBuilder = true)
+    public Frame(String profile, double x, double y, ColorType colorType, boolean glass, boolean back, boolean hook, boolean badges) {
         super(profile, x, y, colorType);
         this.glass = glass;
         this.back = back;
         this.hook = hook;
-        this.mounted = mounted;
+        this.badges = badges;
     }
 }

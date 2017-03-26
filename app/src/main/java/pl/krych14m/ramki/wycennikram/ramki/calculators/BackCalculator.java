@@ -8,15 +8,15 @@ import pl.krych14m.ramki.wycennikram.ramki.products.Back;
 
 public class BackCalculator extends ArealProductCalculator {
 
-    private final AccessoryParametersProvider accessoryPriceProvider;
+    private final AccessoryParametersProvider accessoryParametersProvider;
 
-    public BackCalculator(AccessoryParametersProvider accessoryPriceProvider) {
-        this.accessoryPriceProvider = accessoryPriceProvider;
+    public BackCalculator(AccessoryParametersProvider accessoryParametersProvider) {
+        this.accessoryParametersProvider = accessoryParametersProvider;
     }
 
     @Override
     public double getSquareMeterPrice(Product product) {
-        return accessoryPriceProvider.getAccessoryPrice(AccessoryKey.BACK_PRICE);
+        return accessoryParametersProvider.getAccessoryPrice(AccessoryKey.BACK_PRICE);
     }
 
     @Override

@@ -8,15 +8,15 @@ import pl.krych14m.ramki.wycennikram.ramki.products.Glass;
 
 public class GlassCalculator extends ArealProductCalculator {
 
-    private final AccessoryParametersProvider accessoryPriceProvider;
+    private final AccessoryParametersProvider accessoryParametersProvider;
 
-    public GlassCalculator(AccessoryParametersProvider accessoryPriceProvider) {
-        this.accessoryPriceProvider = accessoryPriceProvider;
+    public GlassCalculator(AccessoryParametersProvider accessoryParametersProvider) {
+        this.accessoryParametersProvider = accessoryParametersProvider;
     }
 
     @Override
     public double getSquareMeterPrice(Product product) {
-        return accessoryPriceProvider.getAccessoryPrice(AccessoryKey.GLASS_PRICE);
+        return accessoryParametersProvider.getAccessoryPrice(AccessoryKey.GLASS_PRICE);
     }
 
     @Override
