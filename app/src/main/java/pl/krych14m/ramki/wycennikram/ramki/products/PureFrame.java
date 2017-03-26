@@ -1,6 +1,5 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Value;

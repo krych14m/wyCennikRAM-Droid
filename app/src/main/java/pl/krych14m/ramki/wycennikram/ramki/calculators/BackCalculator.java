@@ -1,10 +1,10 @@
 package pl.krych14m.ramki.wycennikram.ramki.calculators;
 
 import pl.krych14m.ramki.wycennikram.api.calculators.ArealProductCalculator;
+import pl.krych14m.ramki.wycennikram.api.products.Product;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.Back;
-import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 public class BackCalculator extends ArealProductCalculator {
 

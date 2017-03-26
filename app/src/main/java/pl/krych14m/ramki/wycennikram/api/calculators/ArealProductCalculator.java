@@ -1,7 +1,7 @@
 package pl.krych14m.ramki.wycennikram.api.calculators;
 
-import pl.krych14m.ramki.wycennikram.api.products.TwoDimensionalProduct;
 import pl.krych14m.ramki.wycennikram.api.products.Product;
+import pl.krych14m.ramki.wycennikram.api.products.TwoDimensionalProduct;
 
 public abstract class ArealProductCalculator implements Calculator {
 
