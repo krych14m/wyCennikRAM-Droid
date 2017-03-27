@@ -47,6 +47,8 @@ public class FrameCalculator implements Calculator {
         }
         if (frame.isBadges() && (frame.isGlass() || frame.isBack())) {
             glassAndBackPrice = Precision.round(1.5 * glassAndBackPrice, 2);
+        }
+        if (frame.isBadges()) {
             Badges badges = new Badges(frame.getX(), frame.getY());
             badgesPrice = badgesCalculator.getPrice(badges);
         }
