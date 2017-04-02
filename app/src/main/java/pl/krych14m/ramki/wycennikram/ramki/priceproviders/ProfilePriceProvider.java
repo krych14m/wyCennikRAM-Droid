@@ -1,11 +1,11 @@
 package pl.krych14m.ramki.wycennikram.ramki.priceproviders;
 
-import java.util.List;
+import java.util.Set;
 
 public interface ProfilePriceProvider {
 
-    ProfilePrice getProfilePrice(String profile);
+    ProfilePrice getProfilePrice(String profile) throws ProfileNotFoundException;
 
-    List<String> getAvailableProfiles();
+    Set<String> getAvailableProfiles();
 
 }

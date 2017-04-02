@@ -14,6 +14,7 @@ import lombok.Value;
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfileNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceImpl;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.ColorType;
@@ -45,7 +46,7 @@ public class FrameCalculatorTest {
     }
 
     @BeforeClass
-    public static void before() {
+    public static void before() throws ProfileNotFoundException {
         ProfilePriceProvider profilePriceProvider = mock(ProfilePriceProvider.class);
         when(profilePriceProvider.getProfilePrice("10")).thenReturn(new ProfilePriceImpl(STRIP_PRICE));
 

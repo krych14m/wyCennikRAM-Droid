@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfileNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceImpl;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.ColorType;
@@ -24,7 +25,7 @@ public class PureFrameCalculatorTest {
     private PureFrameCalculator pureFrameCalculator;
 
     @Before
-    public void before() {
+    public void before() throws ProfileNotFoundException {
         ProfilePriceProvider profilePriceProvider = mock(ProfilePriceProvider.class);
         when(profilePriceProvider.getProfilePrice("10")).thenReturn(new ProfilePriceImpl(LESS_THAN_METER_PRICE));
         this.pureFrameCalculator = new PureFrameCalculator(profilePriceProvider);
