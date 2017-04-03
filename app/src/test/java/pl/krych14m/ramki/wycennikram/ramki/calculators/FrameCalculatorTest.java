@@ -13,6 +13,7 @@ import lombok.ToString;
 import lombok.Value;
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParameterNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfileNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceImpl;
@@ -46,8 +47,8 @@ public class FrameCalculatorTest {
     }
 
     @BeforeClass
-    public static void before() throws ProfileNotFoundException {
-        ProfilePriceProvider profilePriceProvider = mock(ProfilePriceProvider.class);
+	public static void before() throws ProfileNotFoundException, AccessoryParameterNotFoundException {
+		ProfilePriceProvider profilePriceProvider = mock(ProfilePriceProvider.class);
         when(profilePriceProvider.getProfilePrice("10")).thenReturn(new ProfilePriceImpl(STRIP_PRICE));
 
         AccessoryParametersProvider accessoryParametersProvider = mock(AccessoryParametersProvider.class);

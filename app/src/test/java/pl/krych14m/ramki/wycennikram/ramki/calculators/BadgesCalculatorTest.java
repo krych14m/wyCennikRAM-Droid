@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParameterNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.Badges;
 
@@ -20,7 +21,7 @@ public class BadgesCalculatorTest {
     private BadgesCalculator badgesCalculator;
 
     @Before
-    public void before() {
+    public void before() throws AccessoryParameterNotFoundException {
         AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
         when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.SINGLE_BADGE_PRICE)).thenReturn(BASE_SINGLE_BADGE_PRICE);
         when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.BADGES_SPACE_CM)).thenReturn(BASE_BADGES_SPACE_CM);

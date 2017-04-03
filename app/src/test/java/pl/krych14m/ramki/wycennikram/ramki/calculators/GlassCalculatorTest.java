@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParameterNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.Glass;
 
@@ -19,7 +20,7 @@ public class GlassCalculatorTest {
     private GlassCalculator glassCalculator;
 
     @Before
-    public void before() {
+    public void before() throws AccessoryParameterNotFoundException {
         AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
         when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.GLASS_PRICE)).thenReturn(BASE_GLASS_PRICE);
         this.glassCalculator = new GlassCalculator(accessoryPriceProvider);

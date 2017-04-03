@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryKey;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParameterNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.Back;
 
@@ -19,8 +20,8 @@ public class BackCalculatorTest {
     private BackCalculator backCalculator;
 
     @Before
-    public void before() {
-        AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
+	public void before() throws AccessoryParameterNotFoundException {
+		AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
         when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.BACK_PRICE)).thenReturn(BASE_BACK_PRICE);
         this.backCalculator = new BackCalculator(accessoryPriceProvider);
     }
