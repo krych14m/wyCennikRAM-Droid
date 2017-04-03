@@ -30,11 +30,11 @@ public class BadgesCalculatorTest {
 
     @Test
     public void badges_price_is_correct() throws CalculatorException {
-        Badges badges = new Badges(20.0, 30.0);
+        Badges badges = new Badges(10.0, 15.0);
 
         double price = badgesCalculator.getPrice(badges);
 
-        assertEquals(2 * (20.0 + 30.0) / 100 * BASE_SINGLE_BADGE_PRICE * 100 / BASE_BADGES_SPACE_CM, price);
+        assertEquals(2 * (10.0 + 15.0) / 100 * BASE_SINGLE_BADGE_PRICE * 100 / BASE_BADGES_SPACE_CM, price);
     }
 
 }

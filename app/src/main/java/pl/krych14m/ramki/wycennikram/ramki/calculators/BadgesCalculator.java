@@ -22,7 +22,7 @@ public class BadgesCalculator implements Calculator {
 		double perimeter = getPerimeter(badges);
 		double meterPrice;
 		try {
-			meterPrice = getMeterPrice(badges);
+			meterPrice = getMeterPrice();
 		} catch (AccessoryParameterNotFoundException e) {
 			throw new CalculatorException("meter price error", e);
 		}
@@ -34,7 +34,7 @@ public class BadgesCalculator implements Calculator {
         return Badges.class.equals(product.getClass());
     }
 
-	private double getMeterPrice(Badges badges) throws AccessoryParameterNotFoundException {
+	private double getMeterPrice() throws AccessoryParameterNotFoundException {
 		double singleBadgePrice = accessoryParametersProvider.getAccessoryPrice(AccessoryKey.SINGLE_BADGE_PRICE);
 		double badgeSpaceCm = accessoryParametersProvider.getAccessoryPrice(AccessoryKey.BADGES_SPACE_CM);
         return singleBadgePrice * 100 / badgeSpaceCm;

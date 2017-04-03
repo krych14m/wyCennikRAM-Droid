@@ -29,7 +29,9 @@ import static org.mockito.Mockito.when;
 public class FrameCalculatorTest {
 
     public static final double STRIP_PRICE = PureFrameCalculatorTest.STRIP_PRICE;
-    public static final double BASE_PRICE = PureFrameCalculatorTest.BASE_PRICE;
+	public static final double LESS_THAN_METER_PRICE=PureFrameCalculatorTest.LESS_THAN_METER_PRICE;
+	public static final double ADDON_PRICE=PureFrameCalculatorTest.ADDON_PRICE;
+	
     public static final double GLASS_PRICE = 30;
     public static final double BACK_PRICE = 10;
     public static final double BADGES_SPACE_CM = 100;
@@ -77,13 +79,13 @@ public class FrameCalculatorTest {
     public static Collection<Parameter> getParameters() {
         Collection<Parameter> params = new LinkedList<>();
 
-        double framePrice = round(BASE_PRICE);
-        double glassPrice = round(GLASS_PRICE * 0.2 * 0.3);
-        double backPrice = round(BACK_PRICE * 0.2 * 0.3);
-        double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM);
-        double hookPrice = round(HOOK_PRICE);
+        double framePrice = round(LESS_THAN_METER_PRICE*2*(0.1+0.15)+ADDON_PRICE);
+		double glassPrice = round(GLASS_PRICE * 0.1 * 0.15);
+		double backPrice = round(BACK_PRICE * 0.1 * 0.15);
+		double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM * 2 * (0.1 + 0.15));
+		double hookPrice = round(HOOK_PRICE);
 
-        Frame frame = Frame.builder().profile("10").x(20).y(30).colorType(ColorType.RAW).build();
+        Frame frame = Frame.builder().profile("10").x(10).y(15).colorType(ColorType.RAW).build();
 
         params.add(new Parameter(
                 frame,
