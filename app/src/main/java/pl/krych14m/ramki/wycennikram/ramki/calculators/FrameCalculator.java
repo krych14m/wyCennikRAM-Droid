@@ -5,6 +5,8 @@ import org.apache.commons.math3.util.Precision;
 import pl.krych14m.ramki.wycennikram.api.calculators.Calculator;
 import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.api.products.Product;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersProvider;
+import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceProvider;
 import pl.krych14m.ramki.wycennikram.ramki.products.Back;
 import pl.krych14m.ramki.wycennikram.ramki.products.Badges;
 import pl.krych14m.ramki.wycennikram.ramki.products.Frame;
@@ -19,12 +21,12 @@ public class FrameCalculator implements Calculator {
     private HookCalculator hookCalculator;
     private BadgesCalculator badgesCalculator;
 
-    public FrameCalculator(PureFrameCalculator pureFrameCalculator, GlassCalculator glassCalculator, BackCalculator backCalculator, HookCalculator hookCalculator, BadgesCalculator badgesCalculator) {
-        this.pureFrameCalculator = pureFrameCalculator;
-        this.glassCalculator = glassCalculator;
-        this.backCalculator = backCalculator;
-        this.hookCalculator = hookCalculator;
-        this.badgesCalculator = badgesCalculator;
+    public FrameCalculator(ProfilePriceProvider profilePriceProvider, AccessoryParametersProvider accessoryParametersProvider) {
+        this.pureFrameCalculator = new PureFrameCalculator(profilePriceProvider);
+        this.glassCalculator = new GlassCalculator(accessoryParametersProvider);
+        this.backCalculator = new BackCalculator(accessoryParametersProvider);
+        this.hookCalculator = new HookCalculator(accessoryParametersProvider);
+        this.badgesCalculator = new BadgesCalculator(accessoryParametersProvider);
     }
 
     @Override

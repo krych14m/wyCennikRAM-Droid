@@ -29,9 +29,9 @@ import static org.mockito.Mockito.when;
 public class FrameCalculatorTest {
 
     public static final double STRIP_PRICE = PureFrameCalculatorTest.STRIP_PRICE;
-	public static final double LESS_THAN_METER_PRICE=PureFrameCalculatorTest.LESS_THAN_METER_PRICE;
-	public static final double ADDON_PRICE=PureFrameCalculatorTest.ADDON_PRICE;
-	
+    public static final double LESS_THAN_METER_PRICE = PureFrameCalculatorTest.LESS_THAN_METER_PRICE;
+    public static final double ADDON_PRICE = PureFrameCalculatorTest.ADDON_PRICE;
+
     public static final double GLASS_PRICE = 30;
     public static final double BACK_PRICE = 10;
     public static final double BADGES_SPACE_CM = 100;
@@ -49,8 +49,8 @@ public class FrameCalculatorTest {
     }
 
     @BeforeClass
-	public static void before() throws ProfileNotFoundException, AccessoryParameterNotFoundException {
-		ProfilePriceProvider profilePriceProvider = mock(ProfilePriceProvider.class);
+    public static void before() throws ProfileNotFoundException, AccessoryParameterNotFoundException {
+        ProfilePriceProvider profilePriceProvider = mock(ProfilePriceProvider.class);
         when(profilePriceProvider.getProfilePrice("10")).thenReturn(new ProfilePriceImpl(STRIP_PRICE));
 
         AccessoryParametersProvider accessoryParametersProvider = mock(AccessoryParametersProvider.class);
@@ -60,12 +60,7 @@ public class FrameCalculatorTest {
         when(accessoryParametersProvider.getAccessoryPrice(AccessoryKey.SINGLE_BADGE_PRICE)).thenReturn(SINGLE_BADGE_PRICE);
         when(accessoryParametersProvider.getAccessoryPrice(AccessoryKey.HOOK_PRICE)).thenReturn(HOOK_PRICE);
 
-        PureFrameCalculator pureFrameCalculator = new PureFrameCalculator(profilePriceProvider);
-        GlassCalculator glassCalculator = new GlassCalculator(accessoryParametersProvider);
-        BackCalculator backCalculator = new BackCalculator(accessoryParametersProvider);
-        HookCalculator hookCalculator = new HookCalculator(accessoryParametersProvider);
-        BadgesCalculator badgesCalculator = new BadgesCalculator(accessoryParametersProvider);
-        frameCalculator = new FrameCalculator(pureFrameCalculator, glassCalculator, backCalculator, hookCalculator, badgesCalculator);
+        frameCalculator = new FrameCalculator(profilePriceProvider, accessoryParametersProvider);
     }
 
     @Test
@@ -79,11 +74,11 @@ public class FrameCalculatorTest {
     public static Collection<Parameter> getParameters() {
         Collection<Parameter> params = new LinkedList<>();
 
-        double framePrice = round(LESS_THAN_METER_PRICE*2*(0.1+0.15)+ADDON_PRICE);
-		double glassPrice = round(GLASS_PRICE * 0.1 * 0.15);
-		double backPrice = round(BACK_PRICE * 0.1 * 0.15);
-		double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM * 2 * (0.1 + 0.15));
-		double hookPrice = round(HOOK_PRICE);
+        double framePrice = round(LESS_THAN_METER_PRICE * 2 * (0.1 + 0.15) + ADDON_PRICE);
+        double glassPrice = round(GLASS_PRICE * 0.1 * 0.15);
+        double backPrice = round(BACK_PRICE * 0.1 * 0.15);
+        double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM * 2 * (0.1 + 0.15));
+        double hookPrice = round(HOOK_PRICE);
 
         Frame frame = Frame.builder().profile("10").x(10).y(15).colorType(ColorType.RAW).build();
 
