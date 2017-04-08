@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8px"
+    tools:context="pl.krych14m.ramki.wycennikram.FrameFormActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Rama"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomButtons"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profil" />
+
+            <EditText
+                android:id="@+id/editProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/textX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="x" />
+
+            <EditText
+                android:id="@+id/editX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/textY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="y" />
+
+            <EditText
+                android:id="@+id/editY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioRaw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="surowa" />
+
+                <RadioButton
+                    android:id="@+id/radioStain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="bejca" />
+
+                <RadioButton
+                    android:id="@+id/radioOpaque"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="farba" />
+
+                <RadioButton
+                    android:id="@+id/radioWornOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="przetarta" />
+
+            </RadioGroup>
+
+            <Switch
+                android:id="@+id/switchGlass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="szyba" />
+
+            <Switch
+                android:id="@+id/switchBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tył" />
+
+            <Switch
+                android:id="@+id/switchHook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="zawieszka" />
+
+            <Switch
+                android:id="@+id/switchBadges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="fleksy" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oblicz cenę" />
+
+        <Button
+            android:id="@+id/buttonClearForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wyczyść" />
+    </LinearLayout>
+
+</RelativeLayout>

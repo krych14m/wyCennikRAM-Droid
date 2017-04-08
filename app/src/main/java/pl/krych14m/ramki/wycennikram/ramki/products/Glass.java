@@ -8,5 +8,8 @@ public class Glass extends TwoDimensionalProduct {
         super(x, y);
     }
 
-
+    @Override
+    public String getName() {
+        return toString();
+    }
 }

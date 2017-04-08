@@ -37,7 +37,7 @@ public class RamkiCalculator implements Calculator {
 
     @Override
     public double getPrice(Product product) throws CalculatorException {
-        return getPrice(product);
+        return multiCalculator.getPrice(product);
     }
 
     @Override

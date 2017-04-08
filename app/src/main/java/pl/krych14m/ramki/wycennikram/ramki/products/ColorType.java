@@ -1,19 +1,19 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
 public enum ColorType {
-    RAW("raw"),
-    STAIN("stain"),
-    OPAQUE("opaque"),
-    WORN_OUT("worn_out");
+    RAW(""),
+    STAIN("B"),
+    OPAQUE("F"),
+    WORN_OUT("P");
 
-    private final String key;
+    private final String businessKey;
 
-    ColorType(String key) {
-        this.key = key;
+    ColorType(String businessKey) {
+        this.businessKey = businessKey;
     }
 
-    public String getKey() {
-        return key;
+    public String getBusinessKey() {
+        return businessKey;
     }
 
 }

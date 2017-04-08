@@ -33,7 +33,7 @@ public class FrameCalculator implements Calculator {
     public double getPrice(Product product) throws CalculatorException {
         Frame frame = (Frame) product;
 
-        double pureFramePrice = pureFrameCalculator.getPrice(frame);
+        double pureFramePrice = pureFrameCalculator.getPrice(frame.getPureFrame());
 
         double glassAndBackPrice = 0;
         double badgesPrice = 0;

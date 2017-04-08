@@ -8,4 +8,8 @@ public class Badges extends TwoDimensionalProduct {
         super(x, y);
     }
 
+    @Override
+    public String getName() {
+        return toString();
+    }
 }

@@ -1,5 +1,7 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
+import java.text.MessageFormat;
+
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 import lombok.experimental.NonFinal;
@@ -19,4 +21,8 @@ public class PureFrame extends TwoDimensionalProduct {
         this.colorType = colorType;
     }
 
+    @Override
+    public String getName() {
+        return MessageFormat.format("P{0} {1}x{2}", profile, x, y);
+    }
 }

@@ -8,4 +8,8 @@ public class Back extends TwoDimensionalProduct {
         super(x, y);
     }
 
+    @Override
+    public String getName() {
+        return toString();
+    }
 }

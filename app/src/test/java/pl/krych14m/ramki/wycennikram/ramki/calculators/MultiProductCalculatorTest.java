@@ -74,6 +74,10 @@ public class MultiProductCalculatorTest {
 
 
     private static class Door implements Product {
+        @Override
+        public String getName() {
+            return null;
+        }
     }
 
     private static class WoodenDoor extends Door {
