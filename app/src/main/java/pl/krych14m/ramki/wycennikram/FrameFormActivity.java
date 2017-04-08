@@ -7,6 +7,7 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.CheckedChange;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
@@ -83,6 +84,13 @@ public class FrameFormActivity extends AppCompatActivity {
         switchBack.setChecked(false);
         switchHook.setChecked(false);
         switchBadges.setChecked(false);
+    }
+
+    @CheckedChange({R.id.switchGlass, R.id.switchBack})
+    void accessoriesSwitchChanged(boolean isChecked) {
+        if (isChecked) {
+            switchBadges.setChecked(true);
+        }
     }
 
     private Frame getFrameData() {
