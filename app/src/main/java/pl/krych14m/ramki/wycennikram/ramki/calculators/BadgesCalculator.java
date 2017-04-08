@@ -19,24 +19,24 @@ public class BadgesCalculator implements Calculator {
     @Override
     public double getPrice(Product product) throws CalculatorException {
         Badges badges = (Badges) product;
-		double perimeter = getPerimeter(badges);
-		double meterPrice;
-		try {
-			meterPrice = getMeterPrice();
-		} catch (AccessoryParameterNotFoundException e) {
-			throw new CalculatorException("meter price error", e);
-		}
-		return perimeter * meterPrice;
-	}
+        double perimeter = getPerimeter(badges);
+        double meterPrice;
+        try {
+            meterPrice = getMeterPrice();
+        } catch (AccessoryParameterNotFoundException e) {
+            throw new CalculatorException("meter price error", e);
+        }
+        return perimeter * meterPrice;
+    }
 
     @Override
     public boolean isProductSupported(Product product) {
         return Badges.class.equals(product.getClass());
     }
 
-	private double getMeterPrice() throws AccessoryParameterNotFoundException {
-		double singleBadgePrice = accessoryParametersProvider.getAccessoryPrice(AccessoryKey.SINGLE_BADGE_PRICE);
-		double badgeSpaceCm = accessoryParametersProvider.getAccessoryPrice(AccessoryKey.BADGES_SPACE_CM);
+    private double getMeterPrice() throws AccessoryParameterNotFoundException {
+        double singleBadgePrice = accessoryParametersProvider.getAccessoryPrice(AccessoryKey.SINGLE_BADGE_PRICE);
+        double badgeSpaceCm = accessoryParametersProvider.getAccessoryPrice(AccessoryKey.BADGES_SPACE_CM);
         return singleBadgePrice * 100 / badgeSpaceCm;
     }
 

@@ -20,8 +20,8 @@ public class HookCalculatorTest {
     private HookCalculator hookCalculator;
 
     @Before
-	public void before() throws AccessoryParameterNotFoundException {
-		AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
+    public void before() throws AccessoryParameterNotFoundException {
+        AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
         when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.HOOK_PRICE)).thenReturn(BASE_HOOK_PRICE);
         this.hookCalculator = new HookCalculator(accessoryPriceProvider);
     }

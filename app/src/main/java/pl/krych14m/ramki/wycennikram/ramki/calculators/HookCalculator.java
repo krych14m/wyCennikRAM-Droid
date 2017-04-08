@@ -18,12 +18,12 @@ public class HookCalculator implements Calculator {
 
     @Override
     public double getPrice(Product product) throws CalculatorException {
-		try {
-			return accessoryParametersProvider.getAccessoryPrice(AccessoryKey.HOOK_PRICE);
-		} catch (AccessoryParameterNotFoundException e) {
-			throw new CalculatorException("hook price error", e);
-		}
-	}
+        try {
+            return accessoryParametersProvider.getAccessoryPrice(AccessoryKey.HOOK_PRICE);
+        } catch (AccessoryParameterNotFoundException e) {
+            throw new CalculatorException("hook price error", e);
+        }
+    }
 
     @Override
     public boolean isProductSupported(Product product) {

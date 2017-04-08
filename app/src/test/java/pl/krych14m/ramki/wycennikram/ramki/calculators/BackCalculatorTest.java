@@ -20,8 +20,8 @@ public class BackCalculatorTest {
     private BackCalculator backCalculator;
 
     @Before
-	public void before() throws AccessoryParameterNotFoundException {
-		AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
+    public void before() throws AccessoryParameterNotFoundException {
+        AccessoryParametersProvider accessoryPriceProvider = mock(AccessoryParametersProvider.class);
         when(accessoryPriceProvider.getAccessoryPrice(AccessoryKey.BACK_PRICE)).thenReturn(BASE_BACK_PRICE);
         this.backCalculator = new BackCalculator(accessoryPriceProvider);
     }

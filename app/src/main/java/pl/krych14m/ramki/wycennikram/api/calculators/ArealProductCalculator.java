@@ -11,15 +11,15 @@ public abstract class ArealProductCalculator implements Calculator {
         TwoDimensionalProduct product2d = (TwoDimensionalProduct) product;
         double x = product2d.getX();
         double y = product2d.getY();
-		double squareMeterPrice;
-		try {
-			squareMeterPrice = getSquareMeterPrice(product2d);
-		} catch (AccessoryParameterNotFoundException e) {
-			throw new CalculatorException("square meter price error", e);
-		}
-		return (x / 100) * (y / 100) * squareMeterPrice;
-	}
+        double squareMeterPrice;
+        try {
+            squareMeterPrice = getSquareMeterPrice(product2d);
+        } catch (AccessoryParameterNotFoundException e) {
+            throw new CalculatorException("square meter price error", e);
+        }
+        return (x / 100) * (y / 100) * squareMeterPrice;
+    }
 
-	public abstract double getSquareMeterPrice(Product product) throws AccessoryParameterNotFoundException;
+    public abstract double getSquareMeterPrice(Product product) throws AccessoryParameterNotFoundException;
 
 }

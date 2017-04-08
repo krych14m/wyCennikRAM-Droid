@@ -1,8 +1,8 @@
 package pl.krych14m.ramki.wycennikram.ramki.priceproviders;
 
-import org.apache.commons.io.IOUtils;
-
 import android.util.Log;
+
+import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,13 +29,13 @@ public class ProfilePriceProviderImpl implements ProfilePriceProvider {
             }
             String profile = items[0].trim();
             String priceStr = items[1].trim().replace(',', '.');
-			try {
-				double price = Double.parseDouble(priceStr);
-				prices.put(profile, new ProfilePriceImpl(price));
-			} catch (NumberFormatException e) {
-				throw new IOException(line + " is not valid number", e);
-			}
-		}
+            try {
+                double price = Double.parseDouble(priceStr);
+                prices.put(profile, new ProfilePriceImpl(price));
+            } catch (NumberFormatException e) {
+                throw new IOException(line + " is not valid number", e);
+            }
+        }
     }
 
     @Override
