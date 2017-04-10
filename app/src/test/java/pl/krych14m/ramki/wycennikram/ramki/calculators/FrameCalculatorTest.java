@@ -18,7 +18,6 @@ import pl.krych14m.ramki.wycennikram.ramki.priceproviders.AccessoryParametersPro
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfileNotFoundException;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceImpl;
 import pl.krych14m.ramki.wycennikram.ramki.priceproviders.ProfilePriceProvider;
-import pl.krych14m.ramki.wycennikram.ramki.products.ColorType;
 import pl.krych14m.ramki.wycennikram.ramki.products.Frame;
 
 import static junit.framework.Assert.assertEquals;
@@ -38,13 +37,13 @@ public class FrameCalculatorTest {
     private static final double SINGLE_BADGE_PRICE = 1;
     private static final double HOOK_PRICE = 0.5;
 
-    private final Frame frame;
+    private final String frameString;
     private final double price;
 
     private static FrameCalculator frameCalculator;
 
-    public FrameCalculatorTest(Parameter parameter) {
-        this.frame = parameter.getFrame();
+    public FrameCalculatorTest(TestParameter parameter) {
+        this.frameString = parameter.getFrameString();
         this.price = parameter.getPrice();
     }
 
@@ -65,14 +64,16 @@ public class FrameCalculatorTest {
 
     @Test
     public void frame_price_is_correct() throws CalculatorException {
+        Frame frame = new Frame(frameString);
+
         double testPrice = frameCalculator.getPrice(frame);
 
         assertEquals(this.price, testPrice);
     }
 
     @Parameterized.Parameters
-    public static Collection<Parameter> getParameters() {
-        Collection<Parameter> params = new LinkedList<>();
+    public static Collection<TestParameter> getParameters() {
+        Collection<TestParameter> params = new LinkedList<>();
 
         double framePrice = round(LESS_THAN_METER_PRICE * 2 * (0.1 + 0.15) + ADDON_PRICE);
         double glassPrice = round(GLASS_PRICE * 0.1 * 0.15);
@@ -80,30 +81,16 @@ public class FrameCalculatorTest {
         double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM * 2 * (0.1 + 0.15));
         double hookPrice = round(HOOK_PRICE);
 
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, false, false, false, false),
-                framePrice));
+        params.add(new TestParameter("P10 10x15", framePrice));
 
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, true, false, false, false),
-                round(framePrice + glassPrice)));
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, false, true, false, false),
-                round(framePrice + backPrice)));
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, true, true, false, false),
-                round(framePrice + glassPrice + backPrice)));
+        params.add(new TestParameter("P10 10x15 S", round(framePrice + glassPrice)));
+        params.add(new TestParameter("P10 10x15 T", round(framePrice + backPrice)));
+        params.add(new TestParameter("P10 10x15 ST", round(framePrice + glassPrice + backPrice)));
 
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, false, false, false, true),
-                round(framePrice + badgesPrice)));
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, true, true, false, true),
-                round(framePrice + round((glassPrice + backPrice) * 1.5) + badgesPrice)));
+        params.add(new TestParameter("P10 10x15 f", round(framePrice + badgesPrice)));
+        params.add(new TestParameter("P10 10x15 STf", round(framePrice + round((glassPrice + backPrice) * 1.5) + badgesPrice)));
 
-        params.add(new Parameter(
-                new Frame("10", 10, 15, ColorType.RAW, false, false, true, false),
-                round(framePrice + hookPrice)));
+        params.add(new TestParameter("P10 10x15 Z", round(framePrice + hookPrice)));
 
         return params;
     }
@@ -114,8 +101,8 @@ public class FrameCalculatorTest {
 
     @Value
     @ToString
-    private static class Parameter {
-        private Frame frame;
+    private static class TestParameter {
+        private String frameString;
         private double price;
     }
 
