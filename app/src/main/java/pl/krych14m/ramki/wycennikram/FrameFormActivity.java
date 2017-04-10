@@ -98,16 +98,16 @@ public class FrameFormActivity extends AppCompatActivity {
         if (bool(radioStain)) colorType = ColorType.STAIN;
         if (bool(radioOpaque)) colorType = ColorType.OPAQUE;
         if (bool(radioWornOut)) colorType = ColorType.WORN_OUT;
-        return Frame.builder()
-                .profile(str(editProfile))
-                .x(num(editX))
-                .y(num(editY))
-                .colorType(colorType)
-                .glass(bool(switchGlass))
-                .back(bool(switchBack))
-                .hook(bool(switchHook))
-                .badges(bool(switchBadges))
-                .build();
+        return new Frame(
+                str(editProfile),
+                num(editX),
+                num(editY),
+                colorType,
+                bool(switchGlass),
+                bool(switchBack),
+                bool(switchHook),
+                bool(switchBadges)
+        );
     }
 
     private static String str(EditText edit) {

@@ -1,46 +1,21 @@
 package pl.krych14m.ramki.wycennikram.ramki.products;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.Value;
 import pl.krych14m.ramki.wycennikram.api.products.Product;
 
 @Value
-@Builder(toBuilder = true)
+@AllArgsConstructor
 public class Frame implements Product {
 
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private String profile = "";
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private double x = 0;
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private double y = 0;
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private ColorType colorType = ColorType.RAW;
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private boolean glass = false;
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private boolean back = false;
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private boolean hook = false;
-
-    @Builder.Default
-    @Setter(AccessLevel.NONE)
-    private boolean badges = false;
+    private String profile;
+    private double x;
+    private double y;
+    private ColorType colorType;
+    private boolean glass;
+    private boolean back;
+    private boolean hook;
+    private boolean badges;
 
     public PureFrame getPureFrame() {
         return new PureFrame(profile, x, y, colorType);

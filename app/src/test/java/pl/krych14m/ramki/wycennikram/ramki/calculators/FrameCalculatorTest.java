@@ -28,15 +28,15 @@ import static org.mockito.Mockito.when;
 @RunWith(Parameterized.class)
 public class FrameCalculatorTest {
 
-    public static final double STRIP_PRICE = PureFrameCalculatorTest.STRIP_PRICE;
-    public static final double LESS_THAN_METER_PRICE = PureFrameCalculatorTest.LESS_THAN_METER_PRICE;
-    public static final double ADDON_PRICE = PureFrameCalculatorTest.ADDON_PRICE;
+    private static final double STRIP_PRICE = PureFrameCalculatorTest.STRIP_PRICE;
+    private static final double LESS_THAN_METER_PRICE = PureFrameCalculatorTest.LESS_THAN_METER_PRICE;
+    private static final double ADDON_PRICE = PureFrameCalculatorTest.ADDON_PRICE;
 
-    public static final double GLASS_PRICE = 30;
-    public static final double BACK_PRICE = 10;
-    public static final double BADGES_SPACE_CM = 100;
-    public static final double SINGLE_BADGE_PRICE = 1;
-    public static final double HOOK_PRICE = 0.5;
+    private static final double GLASS_PRICE = 30;
+    private static final double BACK_PRICE = 10;
+    private static final double BADGES_SPACE_CM = 100;
+    private static final double SINGLE_BADGE_PRICE = 1;
+    private static final double HOOK_PRICE = 0.5;
 
     private final Frame frame;
     private final double price;
@@ -80,31 +80,29 @@ public class FrameCalculatorTest {
         double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM * 2 * (0.1 + 0.15));
         double hookPrice = round(HOOK_PRICE);
 
-        Frame frame = Frame.builder().profile("10").x(10).y(15).colorType(ColorType.RAW).build();
-
         params.add(new Parameter(
-                frame,
+                new Frame("10", 10, 15, ColorType.RAW, false, false, false, false),
                 framePrice));
 
         params.add(new Parameter(
-                frame.toBuilder().glass(true).build(),
+                new Frame("10", 10, 15, ColorType.RAW, true, false, false, false),
                 round(framePrice + glassPrice)));
         params.add(new Parameter(
-                frame.toBuilder().back(true).build(),
+                new Frame("10", 10, 15, ColorType.RAW, false, true, false, false),
                 round(framePrice + backPrice)));
         params.add(new Parameter(
-                frame.toBuilder().glass(true).back(true).build(),
+                new Frame("10", 10, 15, ColorType.RAW, true, true, false, false),
                 round(framePrice + glassPrice + backPrice)));
 
         params.add(new Parameter(
-                frame.toBuilder().badges(true).build(),
+                new Frame("10", 10, 15, ColorType.RAW, false, false, false, true),
                 round(framePrice + badgesPrice)));
         params.add(new Parameter(
-                frame.toBuilder().glass(true).back(true).badges(true).build(),
+                new Frame("10", 10, 15, ColorType.RAW, true, true, false, true),
                 round(framePrice + round((glassPrice + backPrice) * 1.5) + badgesPrice)));
 
         params.add(new Parameter(
-                frame.toBuilder().hook(true).build(),
+                new Frame("10", 10, 15, ColorType.RAW, false, false, true, false),
                 round(framePrice + hookPrice)));
 
         return params;
