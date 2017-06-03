@@ -10,12 +10,12 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.CheckedChange;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.apache.commons.math3.util.Precision;
 
 import java.util.Locale;
 
+import pl.krych14m.ramki.wycennikram.api.calculators.CalculatorException;
 import pl.krych14m.ramki.wycennikram.ramki.RamkiCalculator;
 import pl.krych14m.ramki.wycennikram.ramki.products.ColorType;
 import pl.krych14m.ramki.wycennikram.ramki.products.Frame;
@@ -52,12 +52,8 @@ public class FrameFormActivity extends AppCompatActivity {
     @Click(R.id.buttonAction)
     void actionButtonClick() {
         try {
-            Frame frame = getFrameData();
-            double price = calculator.getPrice(frame);
-            double priceWithTax = Precision.round(price * 1.23, 2);
             new AlertDialog.Builder(this)
-                    .setMessage(frame.getName() + "\n"
-                            + String.format(Locale.getDefault(), "%.2f brutto = %.2f netto", priceWithTax, price))
+                    .setMessage(generatePriceDialogMessage())
                     .setCancelable(true)
                     .create()
                     .show();
@@ -71,7 +67,6 @@ public class FrameFormActivity extends AppCompatActivity {
     }
 
     @Click(R.id.buttonClearForm)
-    @UiThread
     void clearButtonClick() {
         editProfile.setText("");
         editX.setText("");
@@ -91,6 +86,17 @@ public class FrameFormActivity extends AppCompatActivity {
         if (isChecked) {
             switchBadges.setChecked(true);
         }
+    }
+
+    String generatePriceDialogMessage() throws CalculatorException {
+        Frame frame = getFrameData();
+        double price = calculator.getPrice(frame);
+        double priceWithTax = Precision.round(price * 1.23, 2);
+        return generatePriceDialogMessage(frame.getName(), price, priceWithTax);
+    }
+
+    String generatePriceDialogMessage(String frameString, double price, double priceWithTax) {
+        return String.format(Locale.getDefault(), "%s\n%.2f brutto = %.2f netto", frameString, priceWithTax, price);
     }
 
     private Frame getFrameData() {
