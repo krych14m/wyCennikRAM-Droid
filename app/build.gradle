@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "pl.krych14m.ramki.wycennikram"
         minSdkVersion 16
@@ -18,6 +18,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        'androidManifestFile': 'app\\build\\intermediates\\merged_manifests\\debug\\processDebugManifest\\merged\\AndroidManifest.xml'
+                ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -26,11 +33,9 @@ android {
             signingConfig signingConfigs.config
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
-                    def date = new Date();
+                    def date = new Date()
                     def formattedDate = date.format('yyyyMMddHHmmss')
-                    output.outputFile = new File(output.outputFile.parent,
-                            'wyCennikRAM-' + formattedDate + '-' + output.outputFile.name
-                    )
+                    output.outputFileName = 'wyCennikRAM-' + formattedDate + '-' + output.outputFileName
                 }
             }
         }
@@ -53,6 +58,7 @@ dependencies {
     testCompile "org.robolectric:robolectric:3.3.2"
     annotationProcessor 'org.androidannotations:androidannotations:4.2.0'
     provided 'org.projectlombok:lombok:1.16.16'
+    annotationProcessor 'org.projectlombok:lombok:1.16.16'
 }
 
 configurations.all {
