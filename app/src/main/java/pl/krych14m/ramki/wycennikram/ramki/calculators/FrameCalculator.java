@@ -35,20 +35,22 @@ public class FrameCalculator implements Calculator {
 
         double pureFramePrice = pureFrameCalculator.getPrice(frame.getPureFrame());
 
-        double glassAndBackPrice = 0;
+        double glassPrice = 0;
+        double backPrice = 0;
         double badgesPrice = 0;
         double hookPrice = 0;
 
         if (frame.isGlass()) {
             Glass glass = new Glass(frame.getX(), frame.getY());
-            glassAndBackPrice += glassCalculator.getPrice(glass);
+            glassPrice = glassCalculator.getPrice(glass);
         }
         if (frame.isBack()) {
             Back back = new Back(frame.getX(), frame.getY());
-            glassAndBackPrice += backCalculator.getPrice(back);
+            backPrice = backCalculator.getPrice(back);
         }
         if (frame.isBadges() && (frame.isGlass() || frame.isBack())) {
-            glassAndBackPrice = Precision.round(1.5 * glassAndBackPrice, 2);
+            glassPrice *= 1.5;
+            backPrice *= 1.5;
         }
         if (frame.isBadges()) {
             Badges badges = new Badges(frame.getX(), frame.getY());
@@ -60,11 +62,12 @@ public class FrameCalculator implements Calculator {
         }
 
         pureFramePrice = Precision.round(pureFramePrice, 2);
-        glassAndBackPrice = Precision.round(glassAndBackPrice, 2);
+        glassPrice = Precision.round(glassPrice, 2);
+        backPrice = Precision.round(backPrice, 2);
         hookPrice = Precision.round(hookPrice, 2);
         badgesPrice = Precision.round(badgesPrice, 2);
 
-        double price = pureFramePrice + glassAndBackPrice + hookPrice + badgesPrice;
+        double price = pureFramePrice + glassPrice + backPrice + hookPrice + badgesPrice;
         return Precision.round(price, 2);
     }
 
