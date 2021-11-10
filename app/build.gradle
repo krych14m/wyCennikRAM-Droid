@@ -21,7 +21,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
-                        'androidManifestFile': 'app/src/main/AndroidManifest.xml'
+                        'androidManifestFile': "$projectDir/src/main/AndroidManifest.xml".toString()
                 ]
             }
         }

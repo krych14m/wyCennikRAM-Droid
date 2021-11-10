@@ -121,7 +121,7 @@ public class FrameFormActivity extends AppCompatActivity {
     }
 
     private static double num(EditText edit) {
-        return Double.valueOf(edit.getText().toString());
+        return Double.parseDouble(edit.getText().toString());
     }
 
     private static boolean bool(RadioButton radio) {
