@@ -78,6 +78,8 @@ public class FrameCalculatorTest {
         double framePrice = round(LESS_THAN_METER_PRICE * 2 * (0.1 + 0.15) + ADDON_PRICE);
         double glassPrice = round(GLASS_PRICE * 0.1 * 0.15);
         double backPrice = round(BACK_PRICE * 0.1 * 0.15);
+        double mountedGlassPrice = round(GLASS_PRICE * 0.1 * 0.15 * 1.5);
+        double mountedBackPrice = round(BACK_PRICE * 0.1 * 0.15 * 1.5);
         double badgesPrice = round(SINGLE_BADGE_PRICE * 100 / BADGES_SPACE_CM * 2 * (0.1 + 0.15));
         double hookPrice = round(HOOK_PRICE);
 
@@ -86,11 +88,13 @@ public class FrameCalculatorTest {
         params.add(new TestParameter("P10 10x15 S", round(framePrice + glassPrice)));
         params.add(new TestParameter("P10 10x15 T", round(framePrice + backPrice)));
         params.add(new TestParameter("P10 10x15 ST", round(framePrice + glassPrice + backPrice)));
-
         params.add(new TestParameter("P10 10x15 f", round(framePrice + badgesPrice)));
-        params.add(new TestParameter("P10 10x15 STf", round(framePrice + round((glassPrice + backPrice) * 1.5) + badgesPrice)));
-
         params.add(new TestParameter("P10 10x15 Z", round(framePrice + hookPrice)));
+
+        params.add(new TestParameter("P10 10x15 Tf", round(framePrice + mountedBackPrice + badgesPrice)));
+        params.add(new TestParameter("P10 10x15 Sf", round(framePrice + mountedGlassPrice + badgesPrice)));
+        params.add(new TestParameter("P10 10x15 STf", round(framePrice + mountedGlassPrice + mountedBackPrice + badgesPrice)));
+        params.add(new TestParameter("P10 10x15 STZf", round(framePrice + mountedGlassPrice + mountedBackPrice + badgesPrice + hookPrice)));
 
         return params;
     }
@@ -101,9 +105,9 @@ public class FrameCalculatorTest {
 
     @Value
     @ToString
-    private static class TestParameter {
-        private String frameString;
-        private double price;
+    public static class TestParameter {
+        String frameString;
+        double price;
     }
 
 }
